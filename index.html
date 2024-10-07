@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header with Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom CSS styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .header-part-1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            background-color: #262626;
+            color: white;
+        }
+        .header-part-1 h1{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .header-part-1 .search-box {
+            flex-grow: 1;
+            margin: 0 200px;
+            display: flex;            
+        }
+        .header-part-1 .search-box input {
+            width: 100%;
+            border-radius: 0px;
+            border-bottom-left-radius: 1.25rem;
+           
+        }
+        .header-part-1 .search-box button {
+            background-color: #aeaa05;
+            color: black;
+            border-radius: 0px;
+            border-top-right-radius: 1.25rem;
+
+        }
+        .header-part-1 .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .header-part-1 .cart-btn {
+            padding-right: 100px;
+            font-size: 1.5em;
+            color: #aeaa05;
+        }
+        .header-part-1 .btn-outline-secondary {
+            background-color: #aeaa05;
+            color: black;
+            border-radius: 5%;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: #333;
+            padding-right: 25px;
+        }
+        .navbar-nav {
+            padding-right: 390px;
+        }
+        .cover-image {
+            background-image: url('./fashion-ecommerce.webp'); /* Replace with your actual image URL */
+            background-position: center;
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            margin-bottom: 20px; /* Adjust margin as needed */
+        }
+        .cover-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity (last value) as needed */
+        }
+        .cover-image .logo {
+            max-width: 80%; /* Adjust based on your logo size */
+            margin-top: 5px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5)); /* Adding a drop shadow */
+        }
+        .cover-image .slogan {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Adding a text shadow */
+        }
+        .footer {
+            background-color: #333;
+            padding: 20px 0;
+            margin-top: auto;
+            color: #ffffff;
+        }
+        .footer .footer-col {
+            margin-bottom: 20px;
+        }
+        .footer .footer-col h5 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .footer .footer-col p {
+            margin: auto;
+            text-align: center;
+        }
+        .footer .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            font-size: 1.5em;
+        }
+        .footer .social-icons a:hover {
+            color: #007bff;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-card h3 {
+            margin-top: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .product-card p {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- First Header Part -->
+    <div class="container-fluid">
+        <div class="row header-part-1">
+            <div class="col-auto">
+                <a href="#" class="navbar-brand">
+                    <h1>Ecommerce</h1>
+                </a>
+            </div>
+            <div class="col search-box">
+                <input type="text" class="form-control" placeholder="Product name, Category name, etc">
+                <button class="btn btn-outline-secondary">Search</button>
+            </div>
+            <div class="col-auto btn-group">
+                <button class="btn btn-outline-secondary">
+                    <a href="./login.html" style="text-decoration: none; color: inherit;">Login</a>
+                </button>
+                <a href="./cart.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Second Header Part (Navigation Bar) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#allproducts">All Products</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="womenDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Women
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="womenDropdown">
+                            <li><a class="dropdown-item" href="#all_products">All Products</a></li>
+                            <li><a class="dropdown-item" href="#dresses">Dresses</a></li>
+                            <li><a class="dropdown-item" href="#pants">Pants</a></li>
+                            <li><a class="dropdown-item" href="#skirts">Skirts</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Men
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menDropdown">
+                            <li><a class="dropdown-item" href="#all_products">All Products</a></li>
+                            <li><a class="dropdown-item" href="#shirts">Shirts</a></li>
+                            <li><a class="dropdown-item" href="#pants">Pants</a></li>
+                            <li><a class="dropdown-item" href="#hoodies">Hoodies</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kids">Kids</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Bootstrap JavaScript and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    
+    
+    <!-- Slogan Section -->
+    
+    <div class="cover-image">
+        
+        <div class="cover-overlay"></div> <!-- Overlay div for opacity -->
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col text-center">
+                    <img src="./original-64accc32e3ffa3a5d805f6b9fdd6998d.jpg" alt="Ecommerce Logo" class="logo" >
+                    <h1 class="slogan">Clothes that talk on behalf of you. Something for every Occassion</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Grid Section -->
+ <!-- Featured Products Section with Carousel -->
+<section class="container mt-5">
+    <h2 class="text-center mb-4">Featured Products</h2>
+    <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                    <!-- Product Card 1 -->
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 1</h5>
+                                <p class="card-text">Category: Men</p>
+                                <p class="card-text">$29.99</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for Product Card 2, 3, 4 -->
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 2</h5>
+                                <p class="card-text">Category: Men</p>
+                                <p class="card-text">$19.99</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div><div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 3</h5>
+                                <p class="card-text">Category: Men</p>
+                                <p class="card-text">$49.99</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div><div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 4</h5>
+                                <p class="card-text">Category: Kids</p>
+                                <p class="card-text">$89.99</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div><!-- Repeat for Product Card 3, 4 -->
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                    <!-- Product Card 5, 6, 7, 8 -->
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 5</h5>
+                                <p class="card-text">Category: Men</p>
+                                <p class="card-text">$14.99</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for Product Card 6, 7, 8 -->
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 6</h5>
+                                <p class="card-text">Category: Women</p>
+                                <p class="card-text">$55.99</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>  <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 7</h5>
+                                <p class="card-text">Category: Women</p>
+                                <p class="card-text">$25.99</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>  <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 8</h5>
+                                <p class="card-text">Category: Women</p>
+                                <p class="card-text">$19.99</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                    <!-- Product Card 9, 10, 11, 12 -->
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 9</h5>
+                                <p class="card-text">Category: Women</p>
+                                <p class="card-text">$49.99</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for Product Card 10, 11, 12 -->
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 10</h5>
+                                <p class="card-text">Category: Kids</p>
+                                <p class="card-text">$29.99</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>  <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 11</h5>
+                                <p class="card-text">Category: Kids</p>
+                                <p class="card-text">$29.99</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>  <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Featured Product 12</h5>
+                                <p class="card-text">Category: Kids</p>
+                                <p class="card-text">$29.99</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<!-- Bootstrap JavaScript and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 footer-col">
+                <h5>Women</h5>
+                <p>Dresses</p>
+                <p>Pants</p>
+                <p>Skirts</p>
+            </div>
+            <div class="col-md-3 footer-col">
+                <h5>Women</h5>
+                <p>Shirts</p>
+                <p>Pants</p>
+                <p>Hoodies</p>
+            </div>
+            <div class="col-md-3 footer-col">
+                <h5>Kids</h5>
+                <!-- Kids content here -->
+            </div>
+            <div class="col-md-3 footer-col">
+                <h5>Links</h5>
+                <p>Home</p>
+                <p>Login</p>
+                <p>Contact</p>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center">
+            <p >Copyright &copy; Ecommerce 2022-2023. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+

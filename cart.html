@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom CSS if needed */
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- First Part: List of Items -->
+        <div class="col-md-8">
+            <h3>Items in Cart</h3>
+            <div class="row g-3" id="cart-items">
+                <!-- Product Item -->
+                <div class="col-md-4" data-id="1" data-price="29.99">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Product Name</h5>
+                            <p class="card-text">Price: $29.99</p>
+                            <button type="button" class="btn btn-sm btn-outline-danger delete-item">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                        </div>
+                        <div class="card-footer text-center">
+                            <!-- Quantity Adjustment Form -->
+                            <form class="d-flex align-items-center justify-content-center">
+                                <button class="btn btn-sm btn-outline-secondary decrement-quantity" type="button">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="text" class="form-control text-center quantity-input" value="1" style="max-width: 50px;" readonly>
+                                <button class="btn btn-sm btn-outline-secondary increment-quantity" type="button">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat for other products in the cart -->
+            </div>
+        </div>
+
+        <!-- Second Part: Summary -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Summary
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Product Price
+                        <span class="product-price">$29.99</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Shipping
+                        <span class="shipping-cost">$5.00</span> <!-- Example shipping cost -->
+                    </li>
+                    <li class="list-group-item border-bottom-0 d-flex justify-content-between align-items-center">
+                        <hr>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Total
+                        <span class="total-cost">$34.99</span> <!-- Example total cost -->
+                    </li>
+                </ul>
+                <div class="card-footer text-center">
+                    <button class="btn btn-primary">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JavaScript and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<!-- Font Awesome JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Delete item from cart
+        document.querySelectorAll('.delete-item').forEach(button => {
+            button.addEventListener('click', function () {
+                this.closest('.col-md-4').remove();
+                updateCartSummary();
+            });
+        });
+
+        // Increment quantity
+        document.querySelectorAll('.increment-quantity').forEach(button => {
+            button.addEventListener('click', function () {
+                let input = this.parentElement.querySelector('.quantity-input');
+                let quantity = parseInt(input.value);
+                input.value = quantity + 1;
+                updateCartSummary();
+            });
+        });
+
+        // Decrement quantity
+        document.querySelectorAll('.decrement-quantity').forEach(button => {
+            button.addEventListener('click', function () {
+                let input = this.parentElement.querySelector('.quantity-input');
+                let quantity = parseInt(input.value);
+                if (quantity > 1) {
+                    input.value = quantity - 1;
+                    updateCartSummary();
+                }
+            });
+        });
+
+        // Update cart summary
+        function updateCartSummary() {
+            let total = 0;
+            let items = document.querySelectorAll('#cart-items .col-md-4');
+            items.forEach(item => {
+                let price = parseFloat(item.getAttribute('data-price'));
+                let quantity = parseInt(item.querySelector('.quantity-input').value);
+                total += price * quantity;
+            });
+            document.querySelector('.product-price').textContent = `$${total.toFixed(2)}`;
+            document.querySelector('.total-cost').textContent = `$${(total + 5).toFixed(2)}`; // Example shipping cost added
+        }
+    });
+</script>
+</body>
+</html>

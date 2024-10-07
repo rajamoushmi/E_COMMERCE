@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .login-form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-control, .btn-primary {
+            border-radius: 0.25rem;
+        }
+        .btn-primary {
+            background-color: #aeaa05;
+            border-color: #aeaa05;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container login-container">
+    <div class="login-form">
+        <h3 class="text-center mb-4">Login</h3>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap JavaScript and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Example credentials (replace with actual authentication logic)
+        const validEmail = 'admin@admin.com';
+        const validPassword = '123456';
+
+        if (email === validEmail && password === validPassword) {
+            alert('Login successful');
+            // Redirect to another page or perform further actions upon successful login
+            window.location.href = 'index.html'; // Example redirect
+        } else {
+            alert('Incorrect email or password');
+        }
+    });
+</script>
+</body>
+</html>
